@@ -1,0 +1,28 @@
+<header class="navbar">
+    <div class="container nav-container">
+        <div class="logo">
+            <i class="fa-solid fa-a logo-icon"></i>
+            <span>kshai.santhosh</span>
+        </div>
+        
+        <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle Menu">
+            <i class="fa-solid" [class.fa-bars]="!isMenuOpen" [class.fa-xmark]="isMenuOpen"></i>
+        </button>
+
+        <nav class="nav-links" [class.active]="isMenuOpen">
+            <a href="#about" (click)="closeMenu()">About</a>
+            <a href="#services" (click)="closeMenu()">Services</a>
+            <a href="#works" (click)="closeMenu()">Works</a>
+            <a href="#resume" (click)="closeMenu()">Resume</a>
+            <a href="#skills" (click)="closeMenu()">Skills</a>
+            <a href="#contact" (click)="closeMenu()">Contact</a>
+        </nav>
+        <div class="nav-actions" [class.active]="isMenuOpen">
+            <!-- Note: theme toggle logic needs adjusting for Angular -->
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme" (click)="toggleTheme(); closeMenu()">
+                <i class="fa-solid fa-moon" id="theme-icon" [class.fa-sun]="isDarkTheme" [class.fa-moon]="!isDarkTheme"></i>
+            </button>
+            <a href="#contact" class="btn btn-primary" (click)="closeMenu()">Hire me!</a>
+        </div>
+    </div>
+</header>

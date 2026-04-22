@@ -1,0 +1,38 @@
+<section id="works" class="section bg-darker">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2>My Recent Works</h2>
+        </div>
+        
+        <div class="filters">
+            <button class="filter-btn" [class.active]="activeFilter === 'all'" (click)="setFilter('all')">All</button>
+            <button class="filter-btn" [class.active]="activeFilter === 'UI/UX'" (click)="setFilter('UI/UX')">UI/UX</button>
+            <button class="filter-btn" [class.active]="activeFilter === 'Web'" (click)="setFilter('Web')">Web</button>
+            <button class="filter-btn" [class.active]="activeFilter === 'Apps'" (click)="setFilter('Apps')">Apps</button>
+        </div>
+
+        <div class="works-grid" id="projects-container">
+            @for (project of filteredProjects; track project.id) {
+                <div class="work-card">
+                    <img [src]="project.image" [alt]="project.title" class="work-img">
+                    <div class="work-info">
+                        <div>
+                            <h3>{{project.title}}</h3>
+                            <p>{{project.category}}</p>
+                        </div>
+                        <a [href]="project.caseStudyPdf" target="_blank" class="pdf-btn" aria-label="Read PDF Case Study">
+                            <i class="fa-solid fa-file-pdf"></i> Read PDF
+                        </a>
+                    </div>
+                    <div class="work-desc" style="margin-top: 1rem; color: var(--text-muted); font-size: 0.95rem;">
+                        {{project.description}}
+                    </div>
+                </div>
+            } @empty {
+                <p>No projects found in this category.</p>
+            }
+        </div>
+        
+       
+    </div>
+</section>
