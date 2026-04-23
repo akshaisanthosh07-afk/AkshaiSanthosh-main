@@ -1,4 +1,4 @@
-<app-header></app-header><main><app-hero></app-hero><app-about></app-about><app-services></app-services><app-works></app-works><app-resume></app-resume><app-skills></app-skills><app-contact></app-contact></main><app-footer></app-footer>
+<app-header></app-header><main><router-outlet></router-outlet></main><app-footer></app-footer>
 
 <!-- Scroll to Top Button -->
 <button class="scroll-to-top" [class.visible]="showScrollToTop" (click)="scrollToTop()" aria-label="Scroll to Top">
@@ -8,35 +8,35 @@
 
 <!-- Mobile Bottom Navigation -->
 <nav class="bottom-nav">
-    <a href="#about" class="bottom-nav-item">
+    <a [routerLink]="['/']" fragment="about" class="bottom-nav-item">
         <div class="nav-icon-wrapper">
             <i class="fa-solid fa-user"></i>
         </div>
         <span>About</span>
     </a>
-    <a href="#education" class="bottom-nav-item">
+    <a [routerLink]="['/']" fragment="education" class="bottom-nav-item">
         <div class="nav-icon-wrapper">
             <i class="fa-solid fa-user-graduate"></i>
         </div>
         <span>Edu</span>
     </a>
-    <a href="#works" class="bottom-nav-item">
+    <a [routerLink]="['/']" fragment="works" class="bottom-nav-item">
         <div class="nav-icon-wrapper main-nav-btn">
             <i class="fa-solid fa-laptop"></i>
         </div>
         <span>Works</span>
     </a>
-    <a href="#experience" class="bottom-nav-item">
+    <a [routerLink]="['/']" fragment="experience" class="bottom-nav-item">
         <div class="nav-icon-wrapper">
             <i class="fa-solid fa-briefcase"></i>
         </div>
         <span>Exp</span>
     </a>
-    <a href="#skills" class="bottom-nav-item">
+    <a [routerLink]="['/']" fragment="contact" class="bottom-nav-item">
         <div class="nav-icon-wrapper">
-            <i class="fa-solid fa-pen-nib"></i>
+            <i class="fa-solid fa-envelope"></i>
         </div>
-        <span>Skills</span>
+        <span>Hire</span>
     </a>
 </nav>
 

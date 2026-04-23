@@ -1,17 +1,12 @@
 import { Component, signal, HostListener } from '@angular/core';
+import { RouterOutlet, RouterModule } from '@angular/router';
 import { Header } from './header/header';
-import { Hero } from './hero/hero';
-import { About } from './about/about';
-import { Services } from './services/services';
-import { Works } from './works/works';
-import { Resume } from './resume/resume';
-import { Skills } from './skills/skills';
-import { Contact } from './contact/contact';
 import { Footer } from './footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, Hero, About, Services, Works, Resume, Skills, Contact, Footer],
+  standalone: true,
+  imports: [RouterOutlet, RouterModule, Header, Footer],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

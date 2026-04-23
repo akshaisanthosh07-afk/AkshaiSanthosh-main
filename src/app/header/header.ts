@@ -1,9 +1,10 @@
 import { Component, Inject, PLATFORM_ID, OnInit, HostListener } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })

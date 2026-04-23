@@ -1,0 +1,49 @@
+<section class="all-works-section section bg-darker pt-120">
+    <div class="container">
+        <div class="back-link">
+            <a [routerLink]="['/']" fragment="works" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </a>
+        </div>
+        
+        <div class="section-header text-center">
+            <h1 class="gradient-text">All My Works</h1>
+            <p class="section-subtitle">A collection of my creative and technical projects</p>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn" [class.active]="activeFilter === 'all'" (click)="setFilter('all')">All Projects</button>
+            <button class="filter-btn" [class.active]="activeFilter === 'UI/UX'" (click)="setFilter('UI/UX')">UI/UX Design</button>
+            <button class="filter-btn" [class.active]="activeFilter === 'Web'" (click)="setFilter('Web')">Web Development</button>
+            <button class="filter-btn" [class.active]="activeFilter === 'Apps'" (click)="setFilter('Apps')">Mobile Apps</button>
+        </div>
+
+        <div class="works-grid">
+            @for (project of filteredProjects; track project.id) {
+                <div class="work-card group">
+                    <div class="work-img-wrapper">
+                        <img [src]="project.image" [alt]="project.title" class="work-img">
+                        <div class="work-overlay">
+                            <a [href]="project.caseStudyPdf" target="_blank" class="premium-btn">
+                                <i class="fa-solid fa-arrow-right"></i> View Study
+                            </a>
+                        </div>
+                    </div>
+                    <div class="work-content">
+                        <div class="work-header">
+                            <span class="work-category">{{project.category}}</span>
+                        </div>
+                        <h3 class="work-title">{{project.title}}</h3>
+                        <p class="work-desc">
+                            {{project.description}}
+                        </p>
+                    </div>
+                </div>
+            } @empty {
+                <div class="no-results">
+                    <p>No projects found in this category.</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>

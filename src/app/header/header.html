@@ -6,12 +6,12 @@
         </div>
         
         <nav class="nav-links" [class.active]="isMenuOpen">
-            <a href="#hero" (click)="closeMenu()">Home</a>
-            <a href="#about" (click)="closeMenu()">About</a>
-            <a href="#services" (click)="closeMenu()">Services</a>
-            <a href="#works" (click)="closeMenu()">Works</a>
-            <a href="#experience" (click)="closeMenu()">Experience</a>
-            <a href="#skills" (click)="closeMenu()">Skills</a>
+            <a [routerLink]="['/']" fragment="hero" (click)="closeMenu()">Home</a>
+            <a [routerLink]="['/']" fragment="about" (click)="closeMenu()">About</a>
+            <a [routerLink]="['/']" fragment="services" (click)="closeMenu()">Services</a>
+            <a [routerLink]="['/']" fragment="works" (click)="closeMenu()">Works</a>
+            <a [routerLink]="['/']" fragment="experience" (click)="closeMenu()">Experience</a>
+            <a [routerLink]="['/']" fragment="skills" (click)="closeMenu()">Skills</a>
         </nav>
 
         <div class="nav-actions-wrapper">
@@ -19,7 +19,7 @@
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme" (click)="toggleTheme()">
                     <i class="fa-solid fa-moon" id="theme-icon" [class.fa-sun]="isDarkTheme" [class.fa-moon]="!isDarkTheme"></i>
                 </button>
-                <a href="#contact" class="btn btn-primary hire-me-btn" (click)="closeMenu()">Hire me!</a>
+                <a [routerLink]="['/']" fragment="contact" class="btn btn-primary hire-me-btn" (click)="closeMenu()">Hire me!</a>
             </div>
             
             <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle Menu">

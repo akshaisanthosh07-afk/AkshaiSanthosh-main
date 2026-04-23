@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-works',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './works.html',
   styleUrl: './works.css',
 })
@@ -45,8 +46,11 @@ export class Works {
   activeFilter = 'all';
 
   get filteredProjects() {
-    if (this.activeFilter === 'all') return this.projects;
-    return this.projects.filter(p => p.category.toLowerCase().includes(this.activeFilter.toLowerCase()));
+    let filtered = this.projects;
+    if (this.activeFilter !== 'all') {
+      filtered = this.projects.filter(p => p.category.toLowerCase().includes(this.activeFilter.toLowerCase()));
+    }
+    return filtered.slice(0, 3);
   }
 
   setFilter(filter: string) {
