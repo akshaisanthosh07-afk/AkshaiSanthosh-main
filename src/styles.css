@@ -1402,5 +1402,71 @@ p { color: var(--text-muted); }
     }
 }
 
+/* Custom Cursor */
+@media (hover: hover) and (pointer: fine) {
+    body {
+        cursor: none;
+    }
+
+    a, button, .filter-btn, .nav-links a, .socials a, .work-card, .advanced-box {
+        cursor: none !important;
+    }
+
+    .custom-cursor {
+        width: 8px;
+        height: 8px;
+        background-color: var(--primary);
+        border-radius: 50%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: width 0.3s, height 0.3s, background-color 0.3s;
+    }
+
+    .cursor-follower {
+        width: 40px;
+        height: 40px;
+        border: 2px solid var(--primary);
+        border-radius: 50%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition: transform 0.15s ease-out, width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
+        opacity: 0.5;
+    }
+
+    .custom-cursor.hidden, .cursor-follower.hidden {
+        opacity: 0;
+    }
+
+    .custom-cursor.pointer {
+        width: 12px;
+        height: 12px;
+        background-color: var(--primary-dark);
+    }
+
+    .cursor-follower.pointer {
+        width: 60px;
+        height: 60px;
+        background-color: var(--primary-transparent);
+        border-color: transparent;
+        opacity: 0.8;
+    }
+}
+
+/* Hide custom cursor on mobile */
+@media (max-width: 768px) {
+    .custom-cursor, .cursor-follower {
+        display: none !important;
+    }
+}
+
+
 
 

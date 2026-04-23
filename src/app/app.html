@@ -40,4 +40,14 @@
     </a>
 </nav>
 
-
+<!-- Custom Cursor -->
+<div class="custom-cursor" 
+     [style.transform]="'translate3d(' + cursorPos.x + 'px,' + cursorPos.y + 'px, 0)'"
+     [class.pointer]="isPointer"
+     [class.hidden]="!isVisible">
+</div>
+<div class="cursor-follower" 
+     [style.transform]="'translate3d(' + cursorPos.x + 'px,' + cursorPos.y + 'px, 0)'"
+     [class.pointer]="isPointer"
+     [class.hidden]="!isVisible">
+</div>

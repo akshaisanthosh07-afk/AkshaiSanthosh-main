@@ -14,9 +14,42 @@ export class App {
   protected readonly title = signal('personal-portfolio');
   showScrollToTop = false;
 
+  // Cursor properties
+  cursorPos = { x: 0, y: 0 };
+  followerPos = { x: 0, y: 0 };
+  isHovered = false;
+  isPointer = false;
+  isVisible = false;
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.showScrollToTop = window.scrollY > 300;
+  }
+
+  @HostListener('window:mousemove', ['$event'])
+  onMouseMove(event: MouseEvent) {
+    this.cursorPos = { x: event.clientX, y: event.clientY };
+    this.isVisible = true;
+    
+    // Check if hovering over a pointer element
+    const target = event.target as HTMLElement;
+    if (!target) return;
+
+    this.isPointer = window.getComputedStyle(target).cursor === 'pointer' || 
+                     target.tagName === 'A' || 
+                     target.tagName === 'BUTTON' ||
+                     target.closest('a') !== null ||
+                     target.closest('button') !== null;
+  }
+
+  @HostListener('window:mouseleave')
+  onMouseLeave() {
+    this.isVisible = false;
+  }
+
+  @HostListener('window:mouseenter')
+  onMouseEnter() {
+    this.isVisible = true;
   }
 
   scrollToTop() {
