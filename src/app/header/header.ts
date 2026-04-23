@@ -1,4 +1,4 @@
-import { Component, Inject, PLATFORM_ID, OnInit } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, OnInit, HostListener } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
@@ -10,6 +10,8 @@ import { isPlatformBrowser } from '@angular/common';
 export class Header implements OnInit {
   isDarkTheme = true;
   isMenuOpen = false;
+  isScrolled = false;
+  isMouseAtTop = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
@@ -48,5 +50,23 @@ export class Header implements OnInit {
         document.documentElement.removeAttribute('data-theme');
       }
     }
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.isScrolled = window.scrollY > 80;
+    }
+  }
+
+  @HostListener('window:mousemove', ['$event'])
+  onMouseMove(event: MouseEvent) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.isMouseAtTop = event.clientY < 100;
+    }
+  }
+
+  get isHeaderHidden(): boolean {
+    return this.isScrolled && !this.isMouseAtTop && !this.isMenuOpen;
   }
 }

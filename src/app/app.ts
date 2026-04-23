@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, HostListener } from '@angular/core';
 import { Header } from './header/header';
 import { Hero } from './hero/hero';
 import { About } from './about/about';
@@ -17,4 +17,18 @@ import { Footer } from './footer/footer';
 })
 export class App {
   protected readonly title = signal('personal-portfolio');
+  showScrollToTop = false;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.showScrollToTop = window.scrollY > 300;
+  }
+
+  scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
 }
+
