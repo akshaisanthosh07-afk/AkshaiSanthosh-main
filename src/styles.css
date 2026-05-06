@@ -1,3 +1,5 @@
+@import 'aos/dist/aos.css';
+
 :root {
     /* Light Mode (Default) */
     --bg-main: #ffffff;
@@ -47,8 +49,30 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto; /* Changed for Lenis compatibility */
     overflow-x: hidden;
+}
+
+/* Lenis smooth scroll styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 body {

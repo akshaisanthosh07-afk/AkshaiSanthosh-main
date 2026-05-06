@@ -3,6 +3,8 @@ import { isPlatformBrowser } from '@angular/common';
 import { RouterOutlet, RouterModule } from '@angular/router';
 import { Header } from './header/header';
 import { Footer } from './footer/footer';
+import Lenis from 'lenis';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -32,6 +34,34 @@ export class App implements OnInit {
       setTimeout(() => {
         window.scrollTo(0, 0);
       }, 0);
+
+      // Initialize Lenis for smooth scrolling
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+        infinite: false,
+      });
+
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // Initialize AOS for reveal animations
+      AOS.init({
+        duration: 1000,
+        easing: 'ease-out-quart',
+        once: true,
+        offset: 50,
+        delay: 50,
+        anchorPlacement: 'top-bottom',
+      });
     }
   }
 

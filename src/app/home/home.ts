@@ -12,13 +12,13 @@ import { Contact } from '../contact/contact';
   standalone: true,
   imports: [Hero, About, Services, Works, Resume, Skills, Contact],
   template: `
-    <app-hero></app-hero>
-    <app-about></app-about>
-    <app-services></app-services>
-    <app-works></app-works>
-    <app-resume></app-resume>
-    <app-skills></app-skills>
-    <app-contact></app-contact>
+    <div data-aos="fade-up"><app-hero></app-hero></div>
+    <div data-aos="fade-up" data-aos-delay="100"><app-about></app-about></div>
+    <div data-aos="fade-up" data-aos-delay="100"><app-services></app-services></div>
+    <div data-aos="fade-up" data-aos-delay="100"><app-works></app-works></div>
+    <div data-aos="fade-up" data-aos-delay="100"><app-resume></app-resume></div>
+    <div data-aos="fade-up" data-aos-delay="100"><app-skills></app-skills></div>
+    <div data-aos="fade-up" data-aos-delay="100"><app-contact></app-contact></div>
   `
 })
 export class Home {}

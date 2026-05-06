@@ -13,7 +13,7 @@
 
         <div class="works-grid" id="projects-container">
             @for (project of filteredProjects; track project.id) {
-                <div class="work-card group">
+                <div class="work-card group" data-aos="fade-up">
                     <div class="work-img-wrapper">
                         <img [src]="project.image" [alt]="project.title" class="work-img">
                         <div class="work-overlay">
