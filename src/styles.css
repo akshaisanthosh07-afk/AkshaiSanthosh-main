@@ -121,13 +121,25 @@ p { color: var(--text-muted); }
 
 /* Navbar */
 .navbar {
+    --nav-text-color: var(--text-main);
     padding: 1.5rem 0;
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
+    left: 0;
+    background: transparent;
+    z-index: 1000;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+}
+
+.navbar.on-dark-bg {
+    --nav-text-color: #ffffff;
+}
+
+.navbar.navbar-scrolled {
     background: var(--nav-bg);
     backdrop-filter: blur(10px);
-    z-index: 1000;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .navbar.header-hidden {
@@ -145,6 +157,8 @@ p { color: var(--text-muted); }
     align-items: center;
     gap: 0.5rem;
     font-size: 1.5rem;
+    color: var(--nav-text-color);
+    text-decoration: none;
 }
 
 .logo-icon { color: var(--primary); }
@@ -155,7 +169,7 @@ p { color: var(--text-muted); }
 }
 
 .nav-links a {
-    color: var(--text-main);
+    color: var(--nav-text-color);
     text-decoration: none;
     font-weight: 500;
     transition: var(--transition);
@@ -170,10 +184,16 @@ p { color: var(--text-muted); }
     gap: 1rem;
 }
 
+.nav-actions .btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
 .theme-toggle {
     background: transparent;
     border: none;
-    color: var(--text-main);
+    color: var(--nav-text-color);
     font-size: 1.1rem;
     cursor: pointer;
     transition: var(--transition);
@@ -1244,7 +1264,7 @@ p { color: var(--text-muted); }
     display: none;
     background: transparent;
     border: none;
-    color: var(--text-main);
+    color: var(--nav-text-color);
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 1001;
@@ -1345,7 +1365,9 @@ p { color: var(--text-muted); }
 @media (max-width: 600px) {
     .logo { font-size: 1rem; }
     .theme-toggle { width: 32px; height: 32px; font-size: 1rem; }
-    .hire-me-btn { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+    .nav-actions { gap: 0.4rem !important; }
+    .nav-actions .btn { padding: 0.4rem 0.6rem; font-size: 0.75rem; }
+    .hire-me-btn { padding: 0.4rem 0.6rem; font-size: 0.75rem; }
     .section { padding: 4rem 0; }
     .intro-headline { font-size: 2.4rem; }
     h2 { font-size: 2.2rem; }

@@ -16,7 +16,7 @@ export const appConfig: ApplicationConfig = {
       routes, 
       withViewTransitions(),
       withInMemoryScrolling({ 
-        scrollPositionRestoration: 'enabled',
+        scrollPositionRestoration: 'top',
         anchorScrolling: 'enabled' 
       })
     )

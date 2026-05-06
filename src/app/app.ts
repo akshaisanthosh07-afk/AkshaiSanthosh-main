@@ -1,4 +1,5 @@
-import { Component, signal, HostListener } from '@angular/core';
+import { Component, signal, HostListener, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterOutlet, RouterModule } from '@angular/router';
 import { Header } from './header/header';
 import { Footer } from './footer/footer';
@@ -10,7 +11,7 @@ import { Footer } from './footer/footer';
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App {
+export class App implements OnInit {
   protected readonly title = signal('personal-portfolio');
   showScrollToTop = false;
 
@@ -20,6 +21,19 @@ export class App {
   isHovered = false;
   isPointer = false;
   isVisible = false;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      if (window.location.hash) {
+        window.history.replaceState('', document.title, window.location.pathname + window.location.search);
+      }
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 0);
+    }
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {

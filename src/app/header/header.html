@@ -1,4 +1,4 @@
-<header class="navbar" [class.header-hidden]="isHeaderHidden">
+<header class="navbar" [class.header-hidden]="isHeaderHidden" [class.navbar-scrolled]="isScrolled" [class.on-dark-bg]="isHomePage && !isScrolled">
     <div class="container nav-container">
         <div class="logo">
             <i class="fa-solid fa-a logo-icon"></i>
@@ -20,6 +20,9 @@
                     <i class="fa-solid fa-moon" id="theme-icon" [class.fa-sun]="isDarkTheme" [class.fa-moon]="!isDarkTheme"></i>
                 </button>
                 <a [routerLink]="['/']" fragment="contact" class="btn btn-primary hire-me-btn" (click)="closeMenu()">Hire me!</a>
+                <a href="assets/resume/AKSHAI%20SANTHOSH%20Resume.pdf" download="AKSHAI SANTHOSH Resume.pdf" class="btn btn-outline" (click)="closeMenu()">
+                    <i class="fa-solid fa-download" style="margin-right: 0.3rem;"></i> Resume
+                </a>
             </div>
             
             <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle Menu">

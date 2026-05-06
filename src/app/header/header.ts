@@ -1,6 +1,6 @@
 import { Component, Inject, PLATFORM_ID, OnInit, HostListener } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +14,11 @@ export class Header implements OnInit {
   isScrolled = false;
   isMouseAtTop = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private router: Router) {}
+
+  get isHomePage(): boolean {
+    return this.router.url === '/' || this.router.url.startsWith('/#');
+  }
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
