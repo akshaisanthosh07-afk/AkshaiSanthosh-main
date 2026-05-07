@@ -1,9 +1,9 @@
 <header class="navbar" [class.header-hidden]="isHeaderHidden" [class.navbar-scrolled]="isScrolled" [class.on-dark-bg]="isHomePage && !isScrolled">
     <div class="container nav-container">
-        <div class="logo">
-            <i class="fa-solid fa-a logo-icon"></i>
-            <span>kshai.santhosh</span>
-        </div>
+        <a [routerLink]="['/']" fragment="hero" class="logo" (click)="closeMenu()">
+            <span class="a">A</span>
+            <span class="s">S</span>
+        </a>
         
         <nav class="nav-links" [class.active]="isMenuOpen">
             <a [routerLink]="['/']" fragment="hero" (click)="closeMenu()">Home</a>
