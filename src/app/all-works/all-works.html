@@ -24,14 +24,23 @@
                     <div class="work-img-wrapper">
                         <img [src]="project.image" [alt]="project.title" class="work-img">
                         <div class="work-overlay">
-                            <a [href]="project.caseStudyPdf" target="_blank" class="premium-btn">
-                                <i class="fa-solid fa-arrow-right"></i> View Study
-                            </a>
+                            @if (project.comingSoon) {
+                                <span class="premium-btn disabled-btn">
+                                    Coming Soon
+                                </span>
+                            } @else {
+                                <a [href]="project.caseStudyPdf" target="_blank" class="premium-btn">
+                                    <i class="fa-solid fa-arrow-right"></i> View Study
+                                </a>
+                            }
                         </div>
                     </div>
                     <div class="work-content">
                         <div class="work-header">
                             <span class="work-category">{{project.category}}</span>
+                            @if (project.comingSoon) {
+                                <span class="coming-soon-badge">Coming Soon</span>
+                            }
                         </div>
                         <h3 class="work-title">{{project.title}}</h3>
                         <p class="work-desc">

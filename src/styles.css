@@ -632,6 +632,28 @@ p { color: var(--text-muted); }
     flex-grow: 1;
 }
 
+.coming-soon-badge {
+    background: var(--primary-transparent);
+    color: var(--primary);
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-left: auto;
+    border: 1px solid var(--primary-transparent);
+}
+
+.premium-btn.disabled-btn {
+    background: var(--bg-card-hover);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    cursor: default;
+    pointer-events: none;
+    box-shadow: none;
+}
+
 /* Works responsive moved to bottom media queries */
 
 .add-project-hint {

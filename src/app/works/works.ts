@@ -27,19 +27,21 @@ export class Works {
     },
     {
         id: 3,
-        title: "Enterprise Resource Dashboard",
-        category: "Web",
-        description: "Scalable UI systems designed for B2B resource management and analytics operations.",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
-        caseStudyPdf: "assets/enterprise-dash-case-study.pdf"
+        title: "Tracker.io",
+        category: "Web | UI/UX",
+        description: "An employee tracking management system",
+        image: "assets/tracker.png",
+        caseStudyPdf: "assets/enterprise-dash-case-study.pdf",
+        comingSoon: true
     },
     {
         id: 4,
-        title: "NeoBank Branding",
-        category: "UI/UX", // changed from Branding to fit filters
-        description: "Complete visual identity and design system for a modern, digital-first fintech banking platform.",
-        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80",
-        caseStudyPdf: "assets/neobank-brand-guidelines.pdf"
+        title: "CashNest",
+        category: "Apps | UI/UX",
+        description: "A secure and simplified petty cash tracking and management mobile application.",
+        image: "assets/cashnest.png",
+        caseStudyPdf: "assets/neobank-brand-guidelines.pdf",
+        comingSoon: true
     }
   ];
 
