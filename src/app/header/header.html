@@ -1,8 +1,7 @@
 <header class="navbar" [class.header-hidden]="isHeaderHidden" [class.navbar-scrolled]="isScrolled" [class.on-dark-bg]="isHomePage && !isScrolled">
     <div class="container nav-container">
         <a [routerLink]="['/']" fragment="hero" class="logo" (click)="closeMenu()">
-            <span class="a">A</span>
-            <span class="s">S</span>
+            <img src="assets/ASlogo.png" alt="AS Logo" class="logo-img" />
         </a>
         
         <nav class="nav-links" [class.active]="isMenuOpen">
