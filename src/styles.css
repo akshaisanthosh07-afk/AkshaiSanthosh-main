@@ -1571,6 +1571,29 @@ p { color: var(--text-muted); }
     }
 }
 
+/* Global Custom Cursor Sparkles */
+.cursor-sparkle {
+  position: fixed;
+  pointer-events: none;
+  font-size: 16px;
+  z-index: 10000;
+  animation: float-sparkle 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  user-select: none;
+  transform: translate(-50%, -50%) scale(var(--scale));
+}
+
+@keyframes float-sparkle {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(var(--scale));
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0);
+  }
+}
+
+
 
 
 

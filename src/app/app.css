@@ -1,0 +1,135 @@
+/* Confetti canvas overlay styling */
+.confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99999;
+  display: none;
+}
+
+.confetti-canvas.active {
+  display: block;
+}
+
+/* Floating Birthday Celebration Widget */
+.birthday-widget {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(23, 23, 23, 0.75);
+  border: 1px solid var(--primary);
+  padding: 0.75rem 1.25rem;
+  border-radius: 50px;
+  z-index: 1001; /* Float above most content but below custom cursor */
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--primary-glow);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  user-select: none;
+}
+
+/* Support for light theme styles */
+:host-context([data-theme="light"]) .birthday-widget {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: var(--primary);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 15px var(--primary-glow);
+}
+
+:host-context([data-theme="light"]) .widget-title {
+  color: #000000;
+}
+
+:host-context([data-theme="light"]) .widget-sub {
+  color: #4b5563;
+}
+
+.birthday-widget:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(23, 23, 23, 0.9);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px var(--primary);
+}
+
+:host-context([data-theme="light"]) .birthday-widget:hover {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Specific styling for the actual birthday day */
+.birthday-widget.birthday-day {
+  border-color: #ff4b82;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 75, 130, 0.4);
+}
+
+.birthday-widget.birthday-day:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px #ff4b82;
+  border-color: #ff4b82;
+}
+
+.birthday-widget-icon {
+  font-size: 1.5rem;
+  animation: widget-bounce 2s ease-in-out infinite;
+}
+
+.birthday-widget-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.widget-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.widget-sub {
+  font-size: 0.75rem;
+  color: #a3a3a3;
+  white-space: nowrap;
+}
+
+@keyframes widget-bounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(8deg); }
+}
+
+/* Custom Cursor sparkles */
+:global(.cursor-sparkle) {
+  position: fixed;
+  pointer-events: none;
+  font-size: 14px;
+  z-index: 10000;
+  animation: float-sparkle 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  user-select: none;
+  transform: translate(-50%, -50%) scale(var(--scale));
+}
+
+@keyframes float-sparkle {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(var(--scale));
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0);
+  }
+}
+
+/* Responsive adjustment for Mobile screens */
+@media (max-width: 768px) {
+  .birthday-widget {
+    bottom: 100px; /* Above the mobile bottom navigation bar */
+    left: 20px;
+    padding: 0.6rem 1rem;
+  }
+  .widget-sub {
+    font-size: 0.7rem;
+  }
+}

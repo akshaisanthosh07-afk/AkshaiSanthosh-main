@@ -51,3 +51,24 @@
      [class.pointer]="isPointer"
      [class.hidden]="!isVisible">
 </div>
+
+<!-- Birthday Celebration Canvas & Widget -->
+<canvas id="birthday-confetti" class="confetti-canvas" [class.active]="confettiActive"></canvas>
+
+@if (isBirthdayPeriod) {
+  <div class="birthday-widget" [class.birthday-day]="isBirthdayDay" (click)="triggerConfettiBurst()" data-aos="fade-left" data-aos-delay="500">
+    <div class="birthday-widget-icon">
+      @if (isBirthdayDay) { 🎂 } @else { 🎈 }
+    </div>
+    <div class="birthday-widget-text">
+      @if (isBirthdayDay) {
+        <span class="widget-title">Happy Birthday!</span>
+        <span class="widget-sub">It's my bday! Click for party! 🎉</span>
+      } @else {
+        <span class="widget-title">Birthday Month!</span>
+        <span class="widget-sub">Akshai's Bday: Aug 18 ⚡</span>
+      }
+    </div>
+  </div>
+}
+
