@@ -44,10 +44,27 @@ export class AllWorks {
         image: "assets/cashnest.png",
         caseStudyPdf: "assets/neobank-brand-guidelines.pdf",
         comingSoon: true
+    },
+    {
+        id: 5,
+        title: "FlowerGo",
+        category: "UI/UX",
+        description: "A vibrant flower ordering and plant care assistant designed to simplify floral gifting.",
+        image: "assets/flowerGo.png",
+        isImageLink: true
+    },
+    {
+        id: 6,
+        title: "Jordan Store",
+        category: "UI/UX",
+        description: "A high-performance conceptual mobile storefront application UI/UX design for sneaker collectors.",
+        image: "assets/Jordan.png",
+        isImageLink: true
     }
   ];
 
   activeFilter = 'all';
+  selectedImage: string | null = null;
 
   get filteredProjects() {
     if (this.activeFilter === 'all') return this.projects;
@@ -56,5 +73,13 @@ export class AllWorks {
 
   setFilter(filter: string) {
     this.activeFilter = filter;
+  }
+
+  openLightbox(image: string) {
+    this.selectedImage = image;
+  }
+
+  closeLightbox() {
+    this.selectedImage = null;
   }
 }

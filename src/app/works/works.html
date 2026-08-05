@@ -21,6 +21,10 @@
                                 <span class="premium-btn disabled-btn">
                                     Coming Soon
                                 </span>
+                            } @else if (project.isImageLink) {
+                                <button (click)="openLightbox(project.image)" class="premium-btn" aria-label="View Project in Full Screen">
+                                    <i class="fa-solid fa-expand"></i> View Project
+                                </button>
                             } @else {
                                 <a [href]="project.caseStudyPdf" target="_blank" class="premium-btn" aria-label="Read PDF Case Study">
                                     <i class="fa-solid fa-arrow-right"></i> View Study
@@ -51,4 +55,15 @@
             </a>
         </div>
     </div>
+
+    @if (selectedImage) {
+        <div class="lightbox-overlay" (click)="closeLightbox()">
+            <div class="lightbox-content" (click)="$event.stopPropagation()">
+                <button class="lightbox-close" (click)="closeLightbox()" aria-label="Close Lightbox">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <img [src]="selectedImage" alt="Project Full Screen View" class="lightbox-img">
+            </div>
+        </div>
+    }
 </section>
