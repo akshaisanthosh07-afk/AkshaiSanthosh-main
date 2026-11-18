@@ -1,43 +1,64 @@
 <section id="hero" class="hero-section">
-  <!-- Video background -->
-  <video #heroVideo class="hero-video" autoplay loop [muted]="true" playsinline>
-    <source src="assets/hero/herovideo.mp4" type="video/mp4">
-  </video>
-  <div class="overlay"></div>
+  <!-- Background: dot grid + warm glows -->
+  <div class="hx-dots" aria-hidden="true"></div>
+  <div class="hx-glow hx-glow-left" aria-hidden="true"></div>
+  <div class="hx-glow hx-glow-right" aria-hidden="true"></div>
 
-  <!-- Hero Content -->
-  <div class="hero-content">
-    <div class="container">
-      <div class="hero-text-wrapper">
-        <h3 class="greeting" [class.birthday-active]="isBirthdayPeriod" data-aos="fade-down" data-aos-delay="300">
-          Hello, I'm
-        </h3>
-        <h1 class="main-title" data-aos="fade-up" data-aos-delay="500">
-          <span class="gradient-text">Akshai</span> Santhosh
-        </h1>
-        <div class="skills-badges" data-aos="fade-up" data-aos-delay="700">
-          <span class="badge">UI UX DESIGN</span>
-          <span class="badge">PRODUCT DESIGN</span>
-          <span class="badge">FRONTEND DEVELOPING</span>
-        </div>
-        <p class="description" data-aos="fade-up" data-aos-delay="900">
-          I craft intuitive user experiences and transform them into robust frontend architectures. By blending thoughtful product design with seamless technical execution, I build premium, next-generation digital products.
-        </p>
-        <div class="hero-actions" data-aos="fade-up" data-aos-delay="1100">
-          <a href="#works" class="btn primary-btn">View My Work</a>
-          <div class="hero-socials">
-            <a href="https://www.linkedin.com/in/akshai18819/" target="_blank" class="social-btn" aria-label="LinkedIn">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a href="https://github.com/akshaisanthosh07-afk" target="_blank" class="social-btn" aria-label="GitHub">
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="https://wa.me/919074329566" target="_blank" class="social-btn" aria-label="WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
-          </div>
+  <!-- Portrait -->
+  <div class="hx-portrait" aria-hidden="true">
+    <img src="assets/meeee.png" alt="" />
+  </div>
+
+  <div class="hx-inner">
+    <!-- Headline -->
+    <div class="hx-copy">
+      <h3 class="greeting" [class.birthday-active]="isBirthdayPeriod" data-aos="fade-up" data-aos-delay="300">
+        Hello, it's me
+      </h3>
+      <h1 class="hx-title" data-aos="fade-up" data-aos-delay="400">
+        <span class="hx-title-line">Akshai</span>
+        <span class="hx-title-line hx-title-accent">Santhosh</span>
+      </h1>
+      <p class="hx-desc" data-aos="fade-up" data-aos-delay="550">
+        I craft intuitive user experiences and turn them into robust frontend
+        architectures &mdash; blending thoughtful product design with seamless
+        technical execution.
+      </p>
+      <div class="hx-actions" data-aos="fade-up" data-aos-delay="700">
+        <a href="#works" class="hx-btn">View My Work <i class="fa-solid fa-arrow-right"></i></a>
+        <div class="hx-socials">
+          <a href="https://www.linkedin.com/in/akshai18819/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/akshaisanthosh07-afk" target="_blank" rel="noopener" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://wa.me/919074329566" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
         </div>
       </div>
+    </div>
+
+    <!-- Bottom row: stats + CTA -->
+    <div class="hx-bottom">
+      <div class="hx-stats" data-aos="fade-up" data-aos-delay="850">
+        <div class="hx-stat">
+          <span class="hx-stat-num">10+</span>
+          <span class="hx-stat-label">Projects Done</span>
+        </div>
+        <div class="hx-stat">
+          <span class="hx-stat-num">3</span>
+          <span class="hx-stat-label">Companies</span>
+        </div>
+        <div class="hx-stat">
+          <span class="hx-stat-num">1+</span>
+          <span class="hx-stat-label">Years of Experience</span>
+        </div>
+      </div>
+      <a href="#contact" class="hx-cta" data-aos="fade-left" data-aos-delay="950">
+        <i class="fa-regular fa-calendar"></i> Let's Talk
+      </a>
     </div>
   </div>
 </section>
