@@ -1,25 +1,21 @@
 <section id="hero" class="hero-section">
-  <!-- Background: dot grid + warm glows -->
-  <div class="hx-dots" aria-hidden="true"></div>
-  <div class="hx-glow hx-glow-left" aria-hidden="true"></div>
-  <div class="hx-glow hx-glow-right" aria-hidden="true"></div>
-
-  <!-- Portrait -->
-  <div class="hx-portrait" aria-hidden="true">
-    <img src="assets/meeee.png" alt="" />
+  <!-- Background photo + legibility shading -->
+  <div class="hx-bg" aria-hidden="true">
+    <img src="assets/bgi.jpeg" alt="" fetchpriority="high" />
   </div>
+  <div class="hx-shade" aria-hidden="true"></div>
 
   <div class="hx-inner">
-    <!-- Headline -->
+    <!-- Left: headline (sits on the dark navy side of the photo) -->
     <div class="hx-copy">
-      <h3 class="greeting" [class.birthday-active]="isBirthdayPeriod" data-aos="fade-up" data-aos-delay="300">
+      <h3 class="greeting" [class.birthday-active]="isBirthdayPeriod" data-aos="fade-right" data-aos-delay="300">
         Hello, it's me
       </h3>
-      <h1 class="hx-title" data-aos="fade-up" data-aos-delay="400">
+      <h1 class="hx-title" data-aos="fade-right" data-aos-delay="400">
         <span class="hx-title-line">Akshai</span>
         <span class="hx-title-line hx-title-accent">Santhosh</span>
       </h1>
-      <p class="hx-desc" data-aos="fade-up" data-aos-delay="550">
+      <p class="hx-desc" data-aos="fade-right" data-aos-delay="550">
         I craft intuitive user experiences and turn them into robust frontend
         architectures &mdash; blending thoughtful product design with seamless
         technical execution.
@@ -40,11 +36,11 @@
       </div>
     </div>
 
-    <!-- Bottom row: stats + CTA -->
-    <div class="hx-bottom">
-      <div class="hx-stats" data-aos="fade-up" data-aos-delay="850">
+    <!-- Right: stats (sits on the warm gold side of the photo) -->
+    <div class="hx-side">
+      <div class="hx-stats" data-aos="fade-left" data-aos-delay="850">
         <div class="hx-stat">
-          <span class="hx-stat-num">10+</span>
+          <span class="hx-stat-num">30+</span>
           <span class="hx-stat-label">Projects Done</span>
         </div>
         <div class="hx-stat">
@@ -56,9 +52,6 @@
           <span class="hx-stat-label">Years of Experience</span>
         </div>
       </div>
-      <a href="#contact" class="hx-cta" data-aos="fade-left" data-aos-delay="950">
-        <i class="fa-regular fa-calendar"></i> Let's Talk
-      </a>
     </div>
   </div>
 </section>
